@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "layout-qor-agent"
+version = "0.1.0"
+description = "Agentic custom-circuit layout optimizer: LLM agent, simulated annealing and CP-SAT placement, GNN QoR surrogate"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+# Core is stdlib-only. Optional: ortools (CP-SAT legalizer), torch/torch-geometric
+# (GNN head), scikit-optimize (BO), anthropic/openai (LLM planner).
+[project.scripts]
+layout-qor = "layout_qor.cli:main"
+[tool.setuptools.packages.find]
+include = ["layout_qor*"]

@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.16)
+project(layout_qor_placer CXX)
+set(CMAKE_CXX_STANDARD 17)
+add_executable(placer placer.cpp)
+add_executable(test_placer test_placer.cpp)
+enable_testing()
+add_test(NAME cpp_smoke COMMAND test_placer)
+# Optional pybind11 module: pip install pybind11, then -DWITH_PYBIND=ON
+option(WITH_PYBIND "build pybind11 module" OFF)
+if(WITH_PYBIND)
+  find_package(pybind11 REQUIRED)
+  pybind11_add_module(placer_ext placer.cpp)
+endif()

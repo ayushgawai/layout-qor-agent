@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+cpp/build/
+*.egg-info/
+.pytest_cache/
+muse.log
+prompt.txt
